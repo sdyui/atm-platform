@@ -34,6 +34,7 @@ public class DepartmentDaoImpl implements DepartmentDao {
             if (tx != null) {
                 tx.rollback();
             }
+            throw new RuntimeException("has an error");
         }
         return dept;
     }
