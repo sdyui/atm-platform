@@ -23,7 +23,7 @@
                       value="sa"/>
 
             <property name="jakarta.persistence.jdbc.password"
-                      value="huy"/>
+                      value="sa"/>
 
             <!-- Hibernate -->
             <property name="hibernate.dialect"
