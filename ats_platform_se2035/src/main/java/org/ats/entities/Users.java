@@ -3,6 +3,8 @@ package org.ats.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "users")
@@ -29,5 +31,8 @@ public class Users extends  BaseEntity{
 
     @Column(name = "full_name", columnDefinition = "VARCHAR(255)", nullable = false)
     private String fullName;
+
+    @OneToMany(mappedBy = "department")
+    private List<Department> departments;
 
 }

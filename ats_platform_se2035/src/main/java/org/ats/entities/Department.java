@@ -26,4 +26,7 @@ public class Department extends  BaseEntity{
     @OneToMany(mappedBy = "department")
     private Set<Jobs> jobs;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Users user;
 }
