@@ -3,6 +3,7 @@ package org.ats.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -26,7 +27,9 @@ public class Department extends  BaseEntity{
     @OneToMany(mappedBy = "department")
     private Set<Jobs> jobs;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private Users user;
+    @OneToMany(mappedBy = "department")
+    private List<Users> users;
+
+    @OneToMany(mappedBy = "department")
+    private List<Application> applications;
 }

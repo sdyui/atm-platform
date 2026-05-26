@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -28,5 +29,8 @@ public class Skill extends BaseEntity {
 
     @OneToMany( mappedBy = "skill")
     private Set<Skill> skills;
+
+    @OneToMany(mappedBy = "skill")
+    private List<CandidateSkill> candidateSkills;
 
 }

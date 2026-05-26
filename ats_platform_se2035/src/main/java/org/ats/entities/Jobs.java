@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -52,4 +53,8 @@ public class Jobs {
 
     @OneToMany(mappedBy = "job")
     private Set<JobSkill> skills;
+
+    @OneToMany(mappedBy = "Job")
+    private List<Application> applications;
+
 }

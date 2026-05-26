@@ -13,5 +13,5 @@ public class JobSkill {
     @Id
     @Column(name = "job_id")
     @ManyToOne(fetch = FetchType.LAZY)
-    private Job job;
+    private Jobs job;
 }

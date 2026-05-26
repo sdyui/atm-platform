@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -32,7 +33,13 @@ public class Users extends  BaseEntity{
     @Column(name = "full_name", columnDefinition = "VARCHAR(255)", nullable = false)
     private String fullName;
 
-    @OneToMany(mappedBy = "department")
-    private List<Department> departments;
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
 
+    @OneToMany(mappedBy = "user")
+    private List<Notifications> notifications;
+
+    @OneToMany(mappedBy = "user")
+    private Set<InterviewInterviewers> interviewInterviewers;
 }

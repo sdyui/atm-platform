@@ -1,9 +1,6 @@
 package org.ats.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,4 +23,8 @@ public class Notifications extends BaseEntity{
     private String message;
     @Column(name= "is_read")
     private Boolean isRead;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Users user;
 }

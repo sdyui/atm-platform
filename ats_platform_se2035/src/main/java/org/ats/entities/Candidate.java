@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter @Setter
 @NoArgsConstructor
@@ -40,4 +42,12 @@ public class Candidate extends BaseEntity {
     private String utmCampaign;
     @Column(name = "is_duplicate")
     private Boolean isDuplicate;
+    @OneToMany(mappedBy = "candidate")
+    private List<CandidateSkill> candidateSkills;
+
+    @OneToMany(mappedBy = "candidate")
+    private List<Cvs> cvs;
+
+    @OneToMany(mappedBy = "candidate")
+    private List<Application>applications;
 }
