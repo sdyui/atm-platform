@@ -5,6 +5,8 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
 import org.ats.entities.Department;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -37,6 +39,18 @@ public class DepartmentDaoImpl implements DepartmentDao {
             throw new RuntimeException("has an error");
         }
         return dept;
+    }
+
+    @Override
+    public boolean isExised(String name) {
+        try (Session session = entityManager.unwrap(Session.class)){
+            Query<Long> query = session.createQuery("SELECT COUNT (d) From Department d where d.departmentName = :name");
+            query.setParameter("param",name);
+            Long amout = query.getSingleResult();
+
+            return  amout > 0;
+        }
+
     }
 
     @Override

@@ -9,5 +9,6 @@ public interface DepartmentDao {
 
     Department createDepartment(Department dept);
 
+    boolean isExised(String name);
 
 }
